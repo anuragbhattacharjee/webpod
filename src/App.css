@@ -1,0 +1,31 @@
+.container-fluid {
+  text-align: center;
+  color: #fff;
+  background-color: #1d1e22;
+  /* height: 100%; */
+  /* min-height: 100vh; */
+}
+.flex-fill {
+  flex: 1;
+}
+
+.main-container {
+  border: 12px solid #333642;
+
+  /* height: inherit; */
+}
+
+.main-instructions-column {
+  border-right: 18px solid #333642;
+  padding: 20px;
+}
+
+.main-player-column {
+  /* border: 1px solid rgba(0, 0, 0, 0.4); */
+  padding: 20px;
+}
+
+.main-command-column {
+  border-left: 18px solid #333642;
+  padding: 20px;
+}
