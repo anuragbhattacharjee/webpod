@@ -17,9 +17,9 @@ A Web App to play distraction free music.
   - [Instructions](#insuctions)
   - [Install](#install)
   - [Usage](#usage)
-    - [`yarn start`](#yarn-start)
-    - [`yarn test`](#yarn-test)
-    - [`yarn build`](#yarn-build)
+    - [`npm start`](#yarn-start)
+    - [`npm test`](#yarn-test)
+    - [`npm build`](#yarn-build)
   - [API](#api)
   - [Maintainers](#maintainers)
   - [Contributing](#contributing)
@@ -44,6 +44,9 @@ npm install
 ```
 
 ## Usage
+
+You need to create your own API credential on [Google Developer Console](https://console.developers.google.com/apis/credentials).
+Rename .env.sample to .env and replace API_KEY value to your API Key.
 
 In the project directory, you can run:
 

@@ -10,6 +10,7 @@ import Command from "./components/command";
 import youtube, { baseTerms } from "./services/youtube";
 
 require("dotenv").config();
+
 // document.body.style.backgroundColor = "#282c34";
 
 class App extends Component {
@@ -134,6 +135,7 @@ class App extends Component {
   };
 
   searchVideo = async (searchTerm) => {
+    console.log("Process key: ", process.env);
     const response = await youtube.get("/search", {
       params: {
         ...baseTerms,

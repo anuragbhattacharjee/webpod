@@ -1,5 +1,5 @@
 import axios from "axios";
-const KEY = process.env.API_KEY;
+const KEY = process.env.REACT_APP_API_KEY;
 
 export const baseTerms = {
   part: "snippet",
