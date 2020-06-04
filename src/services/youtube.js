@@ -1,5 +1,5 @@
 import axios from "axios";
-const KEY = "AIzaSyDg4p3Spga0EwXFjTm-o2GgjpZ0cGnA4Fo";
+const KEY = process.env.API_KEY;
 
 export const baseTerms = {
   part: "snippet",

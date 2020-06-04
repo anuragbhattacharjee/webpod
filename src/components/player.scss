@@ -184,6 +184,7 @@ audio {
       box-shadow: 0 5px 10px 0px rgba($black, 0.125);
       margin: auto;
       pointer-events: all;
+      background: $white;
 
       &:active {
         transform: scale(0.98);
@@ -203,6 +204,11 @@ audio {
         &.fa-play {
           margin-left: 5px;
         }
+      }
+
+      .hammertime {
+        height: 50px;
+        vertical-align: middle;
       }
     }
   }

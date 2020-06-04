@@ -37,7 +37,8 @@ class Player extends Component {
         </div>
         <div className="Controls">
           <div className="Button">
-            <i className="fa fa-fw fa-play"></i>
+            {/* <i className="fa fa-fw fa-play"></i> */}
+            <img src="assets/mchammer.gif" className="hammertime"></img>
           </div>
         </div>
         <div className="Timestamps">
