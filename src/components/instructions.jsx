@@ -45,7 +45,8 @@ const Instructions = (props) => {
       <br />
       <article>
         <p>
-          Made with <span role="img"> ❤️ </span> by Anurag
+          Made with <span class="fa fa-heart fa-2x animated pulse"></span> by
+          Anurag
         </p>
       </article>
     </div>
