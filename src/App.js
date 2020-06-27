@@ -2,9 +2,14 @@ import React, { Component } from "react";
 import "./App.css";
 import _ from "lodash";
 
+// For dark mode
+import { ThemeProvider } from "styled-components";
+import { lightTheme, darkTheme } from "./services/theme";
+import { GlobalStyle } from "./services/global";
+
 import Navbar from "./components/navbar";
 import Player from "./components/player";
-import Instructions from "./components/instructions";
+import Instructions from "./components/instructions/index";
 import Command from "./components/command";
 
 import youtube, { baseTerms } from "./services/youtube";
@@ -22,6 +27,7 @@ class App extends Component {
     instruction: "",
     vdoEvent: null,
     vdoPauseTime: 0,
+    theme: "dark",
   };
 
   handleVideoEvent = (c) => {
@@ -174,7 +180,7 @@ class App extends Component {
     return 0;
   };
 
-  stopVideo() {
+  stopVideo = () => {
     const { vdoEvent } = this.state;
     if (!_.isEmpty(vdoEvent)) {
       vdoEvent.target.stopVideo();
@@ -184,35 +190,51 @@ class App extends Component {
       return 1;
     }
     return 0;
-  }
+  };
+
+  // The function that toggles between themes
+  toggleTheme = () => {
+    // if the theme is not light, then set it to dark
+    if (this.state.theme === "light") {
+      this.setState({ theme: "dark" });
+      // otherwise, it should be light
+    } else {
+      this.setState({ theme: "light" });
+    }
+  };
 
   render() {
-    const { inputTerm, videos, selectedVideo, commands } = this.state;
+    const { inputTerm, videos, selectedVideo, commands, theme } = this.state;
 
     return (
-      <main className="container-fluid d-flex h-100 flex-column">
-        <Navbar />
-        <div className="row main-container flex-fill">
-          <div className="col-3 main-instructions-column">
-            <Instructions />
-          </div>
-          <div className="col-6 main-player-column">
-            <Player
-              video={selectedVideo}
-              onVideoEvent={(c) => this.handleVideoEvent(c)}
-            />
-          </div>
-          <div className="col-3 main-command-column">
-            <Command
-              inputTerm={inputTerm}
-              videos={videos}
-              commands={commands}
-              onInputChange={this.handleInputChange}
-              onCommandSubmit={this.handleCommandSubmit}
-            />
-          </div>
-        </div>
-      </main>
+      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+        <>
+          <GlobalStyle />
+          <main className="container-fluid d-flex h-100 flex-column">
+            <Navbar />
+            <div className="row main-container flex-fill">
+              <div className="col-3 main-instructions-column">
+                <Instructions theme={theme} onToggleTheme={this.toggleTheme} />
+              </div>
+              <div className="col-6 main-player-column">
+                <Player
+                  video={selectedVideo}
+                  onVideoEvent={(c) => this.handleVideoEvent(c)}
+                />
+              </div>
+              <div className="col-3 main-command-column">
+                <Command
+                  inputTerm={inputTerm}
+                  videos={videos}
+                  commands={commands}
+                  onInputChange={this.handleInputChange}
+                  onCommandSubmit={this.handleCommandSubmit}
+                />
+              </div>
+            </div>
+          </main>
+        </>
+      </ThemeProvider>
     );
   }
 }

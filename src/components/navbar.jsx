@@ -1,20 +1,22 @@
 import React, { Component } from "react";
 
 class Navbar extends Component {
+  navbarStyle = {
+    margin: "auto",
+  };
   render() {
     return (
-      <div className="row navbar">
+      <div className="navbar" style={this.navbarStyle}>
         {/* <div className="col-2" style={{ textAlign: "left" }}>
           Total Users using: 2000
         </div> */}
-        <div className="col">
-          <h3>
-            <span role="img"> 📻 </span>
-            WebPod
-          </h3>
-        </div>
+        <h3 style={{ margin: "10px" }}>
+          <span role="img"> 📻 </span>
+          WebPod
+        </h3>
+
         {/* <div className="col-2" style={{ textAlign: "right" }}>
-          <i className="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
+          <i className="fab fa-user-circle-o fa-2x" aria-hidden="true"></i>
         </div> */}
       </div>
     );

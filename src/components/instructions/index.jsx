@@ -1,4 +1,6 @@
 import React from "react";
+import Toggle from "../toggle";
+import "./index.css";
 
 const Instructions = (props) => {
   const styles = {
@@ -10,6 +12,8 @@ const Instructions = (props) => {
       background: "#333655",
     },
   };
+
+  const { theme, onToggleTheme } = props;
 
   return (
     <div>
@@ -44,9 +48,18 @@ const Instructions = (props) => {
       <br />
       <br />
       <article>
+        <Toggle theme={theme} toggleTheme={onToggleTheme} />
+        <p>{theme} mode</p>
+      </article>
+      <br />
+      <article>
         <p>
-          Made with <span class="fa fa-heart fa-2x animated pulse"></span> by
-          Anurag
+          Made with{" "}
+          <span
+            className="fas fa-heart fa-2x animated pulse"
+            style={{ color: "red" }}
+          ></span>{" "}
+          by Anurag
         </p>
       </article>
     </div>
